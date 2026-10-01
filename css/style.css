@@ -318,24 +318,53 @@ h2 {
 
 .quote {
   margin: 0;
-  padding: 1rem 0 1rem 1rem;
+  padding: 0 0 1rem 1rem;
   border-left: 2px solid var(--accent);
   color: var(--muted);
   font-size: 0.98rem;
   text-wrap: pretty;
 }
 
-.quote footer {
-  margin-top: 0.75rem;
-  padding: 0;
-  border: 0;
-  color: var(--faint);
-  font-size: 0.86rem;
+.quote + .quote {
+  margin-top: 1.75rem;
 }
 
-.quote cite {
+.quote-byline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin: 0 0 0.85rem;
+  padding: 0;
+  border: 0;
+}
+
+.quote-byline cite {
+  font-family: var(--serif);
   font-style: normal;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+}
+
+.quote-role {
+  font-size: 0.86rem;
+  color: var(--faint);
+}
+
+.quote p + p {
+  margin-top: 0.75rem;
+}
+
+.quote strong {
   color: var(--ink);
+  font-weight: 600;
+}
+
+.quote-source {
+  margin-top: 0.85rem;
+  font-size: 0.86rem;
+  color: var(--faint);
 }
 
 .detail {
