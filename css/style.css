@@ -196,9 +196,146 @@ h2 {
 }
 
 .prose p,
+.prose ul,
 .detail {
   max-width: 40rem;
   text-wrap: pretty;
+}
+
+.prose ul {
+  margin: 0;
+  padding-left: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.prose li {
+  padding-left: 0.15rem;
+}
+
+.prose li::marker {
+  color: var(--accent);
+}
+
+.summary-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.25rem;
+}
+
+.section-summary {
+  grid-template-columns: 1fr;
+  row-gap: 1rem;
+}
+
+.pillar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  min-height: 100%;
+  padding: 1.15rem 1.1rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 0.45rem;
+  background: var(--pill);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pillar:hover {
+  border-color: var(--accent);
+  color: inherit;
+  text-decoration: none;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.pillar:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.pillar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--accent);
+}
+
+.pillar-icon svg {
+  display: block;
+}
+
+.pillar h3 {
+  margin: 0;
+  font-size: 1.08rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.pillar p {
+  margin: 0;
+  flex: 1;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.pillar-more {
+  margin-top: 0.25rem;
+  font-size: 0.86rem;
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+.page-back {
+  margin-bottom: 1.75rem;
+  font-size: 0.92rem;
+}
+
+.page-back a {
+  color: var(--muted);
+}
+
+.page-title {
+  font-family: var(--serif);
+  font-size: clamp(1.85rem, 4vw, 2.4rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.quote {
+  margin: 0;
+  padding: 1rem 0 1rem 1rem;
+  border-left: 2px solid var(--accent);
+  color: var(--muted);
+  font-size: 0.98rem;
+  text-wrap: pretty;
+}
+
+.quote footer {
+  margin-top: 0.75rem;
+  padding: 0;
+  border: 0;
+  color: var(--faint);
+  font-size: 0.86rem;
+}
+
+.quote cite {
+  font-style: normal;
+  color: var(--ink);
 }
 
 .detail {
@@ -316,6 +453,10 @@ footer {
   .section {
     grid-template-columns: 1fr;
     row-gap: 0.85rem;
+  }
+
+  .pillars {
+    grid-template-columns: 1fr;
   }
 
   .avatar {
