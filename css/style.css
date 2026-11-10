@@ -544,4 +544,214 @@ footer {
     content: " (" attr(href) ")";
     font-size: 0.85em;
   }
+
+  .quest {
+    opacity: 1 !important;
+  }
+
+  .quest-arrow {
+    display: none;
+  }
+}
+
+.quest-heading {
+  font-family: "Press Start 2P", var(--mono);
+  font-size: clamp(0.95rem, 2.2vw, 1.25rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+
+.quest-dek {
+  max-width: 40rem;
+  margin-top: 1rem;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.quest-log {
+  display: flex;
+  flex-direction: column;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.quest {
+  display: grid;
+  grid-template-columns: 2.25rem 64px minmax(0, 1fr);
+  column-gap: 0.85rem;
+  align-items: start;
+  padding: 1.15rem 0.2rem 1.2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.quest-past,
+.quest-next {
+  opacity: 0.48;
+}
+
+.quest-active {
+  opacity: 1;
+  background: var(--pill);
+  margin: 0 -0.75rem;
+  padding-left: 0.95rem;
+  padding-right: 0.95rem;
+}
+
+.quest-mark {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 64px;
+}
+
+.quest-arrow {
+  display: block;
+  width: 24px;
+  height: 18px;
+  overflow: visible;
+  fill: var(--ink);
+  animation: quest-arrow 0.7s steps(2, jump-none) infinite;
+}
+
+@keyframes quest-arrow {
+  from { transform: translateX(0); }
+  to { transform: translateX(4px); }
+}
+
+.quest-sprite {
+  display: block;
+  width: 64px;
+  height: 64px;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  background: #141311;
+  box-shadow: 0 0 0 2px var(--ink);
+}
+
+.quest-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.35rem 1rem;
+}
+
+.quest-title {
+  margin: 0;
+  font-family: "Press Start 2P", var(--mono);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.7;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.quest-status {
+  font-family: "Press Start 2P", var(--mono);
+  font-size: 0.5rem;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.quest-role {
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.quest-deeds {
+  margin: 0.65rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.quest-deeds li {
+  position: relative;
+  margin-top: 0.32rem;
+  padding-left: 0.95rem;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.quest-deeds li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 0.45rem;
+  height: 1px;
+  background: var(--accent);
+}
+
+.exp {
+  max-width: 22rem;
+  margin-top: 0.9rem;
+}
+
+.exp-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.4rem;
+  font-family: "Press Start 2P", var(--mono);
+  font-size: 0.5rem;
+  line-height: 1.7;
+  color: var(--faint);
+}
+
+.exp-track {
+  position: relative;
+  height: 12px;
+  border: 2px solid var(--ink);
+  background: var(--pill);
+  overflow: hidden;
+}
+
+.exp-fill {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+
+.exp-track::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0 7px,
+    color-mix(in srgb, var(--paper) 42%, transparent) 7px 8px
+  );
+  pointer-events: none;
+}
+
+@media (max-width: 42rem) {
+  .quest {
+    grid-template-columns: 1.75rem 64px minmax(0, 1fr);
+    column-gap: 0.55rem;
+  }
+
+  .quest-active {
+    margin: 0 -0.4rem;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+  }
+
+  .quest-title {
+    font-size: 0.56rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quest-arrow {
+    animation: none;
+  }
 }
